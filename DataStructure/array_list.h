@@ -9,6 +9,15 @@
  * Author: Max Fournier
  *
  */
+#include <stdbool.h>
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <string.h>
+#include <assert.h>
+
+#include <stdbool.h>
 
 #ifndef ARRAY_LIST_H
 #define ARRAY_LIST_H
@@ -28,7 +37,7 @@ void insert_at(Array_list *l, int position, float value);
 void add(Array_list *l, float value);
 float remove_at(Array_list *l, int position);
 float get_at(Array_list *l,int position);
-void clear(Array_list *l);
+void clearArray(Array_list *l);
 
 
 

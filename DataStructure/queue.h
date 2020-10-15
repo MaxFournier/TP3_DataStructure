@@ -9,6 +9,11 @@
  * Author: Max Fournier
  *
  */
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <string.h>
+#include <assert.h>
 
 #include <stdbool.h>
 
@@ -33,5 +38,5 @@ float dequeue(Queue *q);
 
 bool is_queue_empty(Queue *q);
 float front(Queue *q); //aka peek
-void clear(Queue *q);
+void clearQueue(Queue *q);
 

@@ -11,6 +11,11 @@
  */
 
 #include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <string.h>
+#include <assert.h>
 
 #ifndef STACK_H
 #define STACK_H
@@ -25,11 +30,11 @@ typedef struct {
 #endif /* STACK_H */
 
 void init_stack(Stack *s);
-void push(Stack *s, float value);
-float pop(Stack *s);
+void pushStack(Stack *s, float value);
+float popStack(Stack *s);
 bool is_stack_empty(Stack *s);
-float peek(Stack *s); // aka top or front
+float peekStack(Stack *s); // aka top or front
 void dup(Stack *s);
 void swap(Stack *s);
-void clear(Stack *s);
+void clearStack(Stack *s);
 

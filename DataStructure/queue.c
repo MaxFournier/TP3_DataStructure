@@ -3,21 +3,41 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <string.h>
+#include <assert.h>
+
 #include "queue.h"
 
-void init_queue(Queue q)
+/**
+ * initialisation de la file
+ * 
+ * @param q
+ *      file, comprend  : un tableau une liste de float et la position de premiere et de la derniere valeur du tableau
+ */
+void init_queue(Queue *q)
 {
     q->front =-1;
     q->rear=-1;
 }
 
-void enqueue(Queue q, float value)
+/**
+ * ajoute une valeur en bout de file
+ * 
+ * @param q
+ *      file, comprend  : un tableau une liste de float et la position de premiere et de la derniere valeur du tableau
+ * @param value
+ *      valeur a ajouter
+ */
+void enqueue(Queue *q, float value)
 {
     if (q->rear < QUEUE_MAX_SIZE-1)
     {
         if (q->front ==-1)
         {
-            front = 0;
+            q->front = 0;
         }
         q->rear ++;
         q->data[q->rear] = value;
@@ -28,7 +48,14 @@ void enqueue(Queue q, float value)
     }
 }
 
-float dequeue(Queue q)
+/**
+ * suprimme et retourne la valeur de debut de file
+ * 
+ * @param q
+ *      file, comprend  : un tableau une liste de float et la position de premiere et de la derniere valeur du tableau
+ * @return 
+ */
+float dequeue(Queue *q)
 {
     if (q->front > -1)
     {
@@ -36,6 +63,7 @@ float dequeue(Queue q)
         
         q->front++;
         
+        //s'il n'y a plus de valeur dans le tableau
         if (q->front > q->rear)
         {
           q->front = q->rear = -1;
@@ -47,11 +75,19 @@ float dequeue(Queue q)
     else
     {
         printf("Pas de donnée");
-        return 0;
+        //return -1;
     }
 }
 
-bool is_queue_empty(Queue q)
+/**
+ * Permet de savoir si la file est vide ou non
+ * 
+ * @param q
+ *      file, comprend  : un tableau une liste de float et la position de premiere et de la derniere valeur du tableau
+ * @return 
+ *      retourne un bool qui indique l'état du tableau
+ */
+bool is_queue_empty(Queue *q)
 {
     if (q->front == -1)
     {
@@ -63,7 +99,15 @@ bool is_queue_empty(Queue q)
     }
 }
 
-float front(Queue q) //aka peek
+/**
+ * retourne la valeur de debut de file
+ * 
+ * @param q
+ *      file, comprend  : un tableau une liste de float et la position de premiere et de la derniere valeur du tableau
+ * @return 
+ *      retourne la valeur de debut de file
+ */
+float front(Queue *q) //aka peek
 {
     if (q->front > -1)
     {
@@ -72,12 +116,17 @@ float front(Queue q) //aka peek
     else
     {
         printf("Pas de donnée");
-        return 0;
+        //return -1;
     }
 }
 
-
-void clear(Queue q)
+/**
+ *   effacement des données de la file
+ * 
+ * @param q
+ *      file, comprend  : un tableau une liste de float et la position de premiere et de la derniere valeur du tableau
+ */
+void clearQueue(Queue *q)
 {
     q->front =-1;
     q->rear=-1;

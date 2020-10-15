@@ -10,6 +10,12 @@
  *
  */
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <string.h>
+#include <assert.h>
+
 #include <stdbool.h>
 
 #ifndef HEAP_H
@@ -29,10 +35,10 @@ typedef struct {
 void init_heap(Heap *h);
 bool is_heap_empty(Heap *h);
 
-float pop(Heap *h) //pop the root value
-void push(Heap *h, float value);
+float popHeap(Heap *h); //pop the root value
+void pushHeap(Heap *h, float value);
 float replace(Heap *h, float value); // pop root and push a new key.
-float peek(Heap *h); // return root value but dont remove it
+float peekHeap(Heap *h); // return root value but dont remove it
 
 //En option
 void heapify(Heap *s, float array[], size_t array_size); //create Heap from array
